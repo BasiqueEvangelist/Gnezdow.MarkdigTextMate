@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Gnezdow.MarkdigTextMate.Tests/Gnezdow.MarkdigTextMate.Tests.csproj" />
+  <Project Path="Gnezdow.MarkdigTextMate/Gnezdow.MarkdigTextMate.csproj" />
+</Solution>
