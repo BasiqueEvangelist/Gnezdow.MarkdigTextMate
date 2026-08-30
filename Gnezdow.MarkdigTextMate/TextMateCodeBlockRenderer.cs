@@ -22,8 +22,19 @@ public class TextMateCodeBlockRenderer(CodeBlockRenderer wrapping, RegistryOptio
 
         var registry = new Registry(options);
         var theme = registry.GetTheme();
+
+        string? scope = options.GetScopeByLanguageId(info);
+
+        if (scope == null) 
+            scope = options.GetScopeByExtension(info);
+
+        if (scope == null)
+        {
+            wrapping.Write(renderer, obj);
+            return;
+        }
         
-        var grammar = registry.LoadGrammar(options.GetScopeByLanguageId(info));
+        var grammar = registry.LoadGrammar(scope);
 
         if (grammar == null)
         {
